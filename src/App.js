@@ -1,21 +1,54 @@
 import React, {Component} from 'react'
-import { Button } from 'semantic-ui-react'
+import { Input, Menu, Segment } from 'semantic-ui-react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class App extends Component {
   render () {
     return (
       <div>
-      <Button primary>test Semantic UI {this.props.contobae}</Button>
+      <Menu pointing inverted color='blue'>
+          <Menu.Item
+            name='home'
+            as={Link} to = '/Home'
+            active={this.props.activeItems === 'home'}
+            onClick={this.props.onClickedHeader}
+          />
+          <Menu.Item
+            name='film'
+            as={Link} to = '/Film'
+            active={this.props.activeItems  === 'film'}
+            onClick={this.props.onClickedHeader}
+          />
+          <Menu.Item
+            name='actor'
+            as={Link} to = '/Actor'
+            active={this.props.activeItems  === 'actor'}
+            onClick={this.props.onClickedHeader}
+          />
+
+          {this.props.activeItems ==='home'}
+        </Menu> 
     </div>
     );}  
 }
 
-const contohcuy = (sampel) => {
+const mapStatetoProps = (state) => {
   return {
-    contobae : sampel.conto
+    activeItems : state.activeItems
+  }
+}
+
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    onClickedHeader:(e, {name}) => {
+      const action = {type : "ACTIVE_ITEM", ActiveItem: name}
+      dispatch (action)
+    }
   }
 }
 
 
-export default connect(contohcuy) (App);
+
+
+export default connect(mapStatetoProps, mapDispatchtoProps) (App);

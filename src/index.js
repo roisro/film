@@ -7,15 +7,22 @@ import Routes from './Routes'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
-const sampel = {
-  conto : 'Developer React JS POKONAMAH'
+const stateFilm = {
+  activeItems : 'home'
 }
 
-const reducerSampel = (state=sampel) => {
-  return state
+const reducerFilm = ( state  = stateFilm, action ) => {
+  console.log("action nya => ", action) 
+  switch(action.type){
+    case "ACTIVE_ITEM":
+      var stateActiveItems = {...state, activeItems : action.Activeitem}
+      return stateActiveItems
+    default :
+        return state
+  }
 }
 
-const store = createStore(reducerSampel)
+const store = createStore(reducerFilm)
 
 ReactDOM.render(
   <React.StrictMode>
