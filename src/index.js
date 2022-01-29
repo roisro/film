@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import 'semantic-ui-css/semantic.min.css'
 import Routes from './Routes' 
-
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
@@ -25,11 +24,9 @@ const reducerFilm = ( state  = stateFilm, action ) => {
 const store = createStore(reducerFilm)
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
     <Routes />
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById('root')
 );
 

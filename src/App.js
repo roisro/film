@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Input, Menu, Segment } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
@@ -27,8 +27,9 @@ class App extends Component {
             onClick={this.props.onClickedHeader}
           />
 
-          {this.props.activeItems ==='home'}
+          
         </Menu> 
+        {this.props.activeItems ==='home'}
     </div>
     );}  
 }

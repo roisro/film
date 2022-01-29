@@ -1,24 +1,29 @@
-import React, {Component}  from'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React, {Component} from 'react'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import App from './App'
 import Home from './Home'
-import Film from './Film'
 import Actor from './Actor'
+import Film from './Film'
+import Beranda from './Beranda'
+import FilmDetail from './FilmDetail'
 
 class Routes extends Component {
-    render() {
+    render () {
         return (
             <Router>
                 <App />
-                    <Switch>
-                        <Route path="/" exact component={Home} />
-                        <Route path="/Home" component={Home} />
-                        <Route path="/Film" component={Film} />
-                        <Route path="/Actor" component={Actor} />
-                    </Switch>
+                <Switch>
+
+                <Route path="/" exact component ={Beranda}></Route>
+                <Route path="/Home" component={Home} />
+                <Route path="/Film" component={Film} />
+                <Route path="/Detail/:id" component={FilmDetail} />
+                <Route path="/Actor" component={Actor} /> 
+
+                </Switch>
             </Router>
         )
-    };
+    }
 }
 
-export default Routes
+export default Routes;
